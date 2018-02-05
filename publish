@@ -4,6 +4,7 @@ cp -R wallet/deps/. _dist
 cp -R daemon/conf/. _dist/etc
 mkdir -p _dist/usr/share/trezarpi
 cp -R daemon/src/. _dist/usr/share/trezarpi
+cp -R lcd/lcd/. _dist/usr/share/trezarpi
 cd _dist
 tar -pczf ../trezarpi.tar.gz .
 cd ..
