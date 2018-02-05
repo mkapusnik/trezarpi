@@ -1,0 +1,11 @@
+#!/bin/bash
+/usr/share/trezarpi/lcd Insert
+while [ $(find /media/pi -mindepth 1 -maxdepth 1 -type d | wc -l) -eq 0 ]; do sleep 1; done
+dir=$(find /media/pi -mindepth 1 -maxdepth 1 -type d)
+/usr/share/trezarpi/lcd Mount
+while [ $(find $dir -mindepth 1 -maxdepth 1 -type d | wc -l) -eq 0 ]; do sleep 1; done
+/usr/share/trezarpi/lcd Start
+
+/usr/share/trezarpi/trezarpi $dir &
+
+trezarcoin-qt -datadir=$dir -conf=$dir/trezarcoin.conf || /usr/share/trezarpi/lcd Wallet Not Started
