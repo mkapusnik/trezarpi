@@ -1,0 +1,5 @@
+#!/usr/bin/env python
+import lcddriver
+
+display = lcddriver.lcd()
+display.lcd_display_string("Hello", 1)

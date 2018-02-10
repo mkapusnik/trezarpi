@@ -17,7 +17,7 @@ echo " ##### Downloading TrezarPi ##### "
 sudo rm -rf /usr/share/trezarpi/
 sudo rm -rf trezarpi.tar.gz
 
-wget https://github.com/mkapusnik/trezarpi/releases/download/1.0/trezarpi.tar.gz
+wget https://github.com/mkapusnik/trezarpi/releases/download/latest/trezarpi.tar.gz
 
 echo " ##### Extracting TrezarPi ##### "
 sudo tar -C / -xzf trezarpi.tar.gz
