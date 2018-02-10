@@ -56,16 +56,15 @@ def lcd(title, message=''):
     print(traceback.format_exc())
 
 def lcdstatus(type):
-  balance = '{:>16}'.format('N/A')
   try:
     rpc_connection = AuthServiceProxy("http://%s:%s@127.0.0.1:17299"%(rpcuser, rpcpass), timeout=10)
     info = rpc_connection.getinfo()
     balance = '{:16.2f}'.format(info['balance'])
+    lcd('Balance:', balance)
   except socket.timeout:
-    pass #balance = '{:>16}'.format('Timeout')
+    pass
   except:
     print(traceback.format_exc())
-  lcd('Balance:', balance)
 
 def main():
   try:
@@ -83,7 +82,7 @@ def main():
         sendmail('Crashed')
         lcd('Wallet Status:', 'Crashed')
       if not prev_status and status:
-        sendmail('Started')
+        sendmail('Starting')
         lcd('Wallet Status:', 'Started')
       if status and rpcuser and rpcpass:
         lcdstatus(1)
